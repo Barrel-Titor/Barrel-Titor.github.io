@@ -97,7 +97,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>每次折腾点新事物，都是疯狂踩坑的过程，但是也从中学到了不少。<br>用博客做点记录，方便以后同样踩坑的朋友解决问题，也方便自己日后回顾。</p>
-<h1 id="1-为什么选择-Hexo-和-Github-Page"><a href="#1-为什么选择-Hexo-和-Github-Page" class="headerlink" title="1 - 为什么选择 Hexo 和 Github Page"></a>1 - 为什么选择 Hexo 和 Github Page</h1><p>相信有心写博客的新手，一开始都会纠结选择哪个平台。就好像我打游戏建号的时候，纠结选用什么武器，最后总会发现，这TM根本不是重点。</p>
+<h1 id="1-为什么选择-Hexo-和-Github-Page"><a href="#1-为什么选择-Hexo-和-Github-Page" class="headerlink" title="1 - 为什么选择 Hexo 和 Github Page"></a>1 - 为什么选择 Hexo 和 Github Page</h1><p>相信有心写博客的新手，一开始都会纠结选择哪个平台。就好像我打游戏建号的时候，纠结选用什么武器，最后总会发现，这 TM 根本不是重点。</p>
 <h2 id="1-1-Github-Page"><a href="#1-1-Github-Page" class="headerlink" title="1.1 - Github Page"></a>1.1 - Github Page</h2><p>对于多个平台的优缺点分析，有大佬已经做过了，有兴趣的朋友请<a href="https://www.zhihu.com/question/24629410/answer/292894980" target="_blank" rel="noopener">自行移步</a>。</p>
 <p>我个人选用 Github Page 的理由：</p>
 <ol>
@@ -146,13 +146,35 @@
 <p>新建完成后，指定文件夹的目录如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
 
-<h3 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h3><p>站点的<a href="#3.2">配置信息</a>，有详细的<a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">官方文档</a>可供参考。</p>
+<h3 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h3><p>站点的<a href="#3.4">配置信息</a>，有详细的<a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">官方文档</a>可供参考。</p>
 <h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>站点依赖文件。</p>
 <h3 id="scaffolds"><a href="#scaffolds" class="headerlink" title="scaffolds"></a>scaffolds</h3><p>日志模版文件夹。例如，我们新建一篇 <code>post</code> 类型的日志，Hexo 会以 <code>scaffolds/post.md</code> 为模板创建新日志。</p>
 <h3 id="source"><a href="#source" class="headerlink" title="source"></a>source</h3><p>存放用户资源的文件夹。我们撰写的日志以及使用的图片、CSS、JS文件都将放在这里。</p>
 <h3 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h3><p>主题文件夹。（Hexo 暖暖</p>
-<h2 id="3-2-Hexo-配置信息"><a href="#3-2-Hexo-配置信息" class="headerlink" title="3.2 - Hexo 配置信息"></a><span id="3.2">3.2 - Hexo 配置信息</span></h2><p>pass</p>
-<h2 id="3-3-启动本地-Hexo-服务器"><a href="#3-3-启动本地-Hexo-服务器" class="headerlink" title="3.3 - 启动本地 Hexo 服务器"></a>3.3 - 启动本地 Hexo 服务器</h2><p>pass</p>
+<h2 id="3-2-启动本地-Hexo-服务器"><a href="#3-2-启动本地-Hexo-服务器" class="headerlink" title="3.2 - 启动本地 Hexo 服务器"></a>3.2 - 启动本地 Hexo 服务器</h2><p>我们可以在本地启动一个服务器，这样当我们在本地写日志时，可以快速预览效果。</p>
+<p>安装 hexo-server:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-server --save</span><br></pre></td></tr></table></figure>
+
+<p>完成后，启动服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>不出意外的话，在浏览器输入 <code>http://localhost:4000/</code> 就可以看到我们网站的雏形啦~</p>
+<p><img src=".%5C%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog%5Cserver.png" alt="local_server"></p>
+<p>如果端口被占用，可以用 <code>-p</code> 选项指定其他端口，如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server -p 5000</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-3-配置-Github-Page"><a href="#3-3-配置-Github-Page" class="headerlink" title="3.3 - 配置 Github Page"></a>3.3 - 配置 Github Page</h2><p>在自己的 Github 主页新建一个 repository，将其命名为 <code>username</code>.github.io，注意 <code>username</code> 是你的用户名而非昵称哦！</p>
+<p>没有问题的话，在这个 repo 的设置页面，可以看到成功创建 Github Page 的信息。</p>
+<p><img src=".%5C%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog%5Cgithub_page.png" alt="github_page"></p>
+<h2 id="3-4-修改-Hexo-配置信息"><a href="#3-4-修改-Hexo-配置信息" class="headerlink" title="3.4 - 修改 Hexo 配置信息"></a><span id="3.4">3.4 - 修改 Hexo 配置信息</span></h2><p>根据需要自行修改以下信息：</p>
+<h3 id="网站描述"><a href="#网站描述" class="headerlink" title="网站描述"></a>网站描述</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">喵喵</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">喵</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">我是一只不可爱的小猫</span>  <span class="comment"># 主要用于SEO</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="string">''</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">喵儿~</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">''</span></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，冒号 <code>:</code> 后面一定要加一个空格，不然会报错，下同。</p>
+<h3 id="域名配置"><a href="#域名配置" class="headerlink" title="域名配置"></a>域名配置</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://xxxxx.github.io/</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br></pre></td></tr></table></figure>
+
+<p>这里的 <code>url</code> 请填写刚才在 Github 上设置的域名，即把 <code>xxxxx</code> 改为我们的 Github 用户名。</p>
 <h2 id="3-4-撰写日志"><a href="#3-4-撰写日志" class="headerlink" title="3.4 - 撰写日志"></a>3.4 - 撰写日志</h2><p>pass</p>
 <p>用 Hexo 写日志时，我们需要先撰写 Markdown 文件并保存在本地，然后调用命令来生成静态页面，最后<a href="#4">部署到 Github</a>。关于 Markdown 的语法，可以参考<a href="[https://hyxxsfwy.github.io/2016/01/15/Hexo-Markdown-%E7%AE%80%E6%98%8E%E8%AF%AD%E6%B3%95%E6%89%8B%E5%86%8C/#%E8%B6%85%E9%93%BE%E6%8E%A5](https://hyxxsfwy.github.io/2016/01/15/Hexo-Markdown-简明语法手册/#超链接)">这篇文章</a>。</p>
 <br>
@@ -169,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://barrel-titor.github.io/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/" data-id="ck8g1oh9w0000rklq3511f6uv" class="article-share-link">Share</a>
+      <a data-url="https://barrel-titor.github.io/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/" data-id="ck8fl5vk60000nolq03t1hmd8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
