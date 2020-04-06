@@ -1,18 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-  
-  <title>用 Hexo 和 GitHub Page 建立简单的 Blog | Barrel Titor&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每次折腾点新事物，都是疯狂踩坑的过程，但是也从中学到了不少。用博客做点记录，方便以后同样踩坑的朋友解决问题，也方便自己日后回顾。 1 - 为什么选择 Hexo 和 GitHub Page相信有心写博客的新手，一开始都会纠结选择哪个平台。就好像我打游戏建号的时候，纠结选用什么武器，最后总会发现，这 TM 根本不是重点。 1.1 - GitHub Page对于多个平台的优缺点分析，有大佬已经做过了，有">
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"barrel-titor.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="每次折腾点新事物，都是疯狂踩坑的过程，但是也从中学到了不少。用博客做点记录，方便以后同样踩坑的朋友解决问题，也方便自己日后回顾。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用 Hexo 和 GitHub Page 建立简单的 Blog">
 <meta property="og:url" content="https://barrel-titor.github.io/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/index.html">
 <meta property="og:site_name" content="Barrel Titor&#39;s Blog">
-<meta property="og:description" content="每次折腾点新事物，都是疯狂踩坑的过程，但是也从中学到了不少。用博客做点记录，方便以后同样踩坑的朋友解决问题，也方便自己日后回顾。 1 - 为什么选择 Hexo 和 GitHub Page相信有心写博客的新手，一开始都会纠结选择哪个平台。就好像我打游戏建号的时候，纠结选用什么武器，最后总会发现，这 TM 根本不是重点。 1.1 - GitHub Page对于多个平台的优缺点分析，有大佬已经做过了，有">
+<meta property="og:description" content="每次折腾点新事物，都是疯狂踩坑的过程，但是也从中学到了不少。用博客做点记录，方便以后同样踩坑的朋友解决问题，也方便自己日后回顾。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://barrel-titor.github.io/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/server.png">
 <meta property="og:image" content="https://barrel-titor.github.io/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/github_page.png">
@@ -20,93 +33,235 @@
 <meta property="og:image" content="https://barrel-titor.github.io/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/new_branch.png">
 <meta property="og:image" content="https://barrel-titor.github.io/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/switch_branch.png">
 <meta property="article:published_time" content="2020-03-31T07:34:39.000Z">
-<meta property="article:modified_time" content="2020-04-04T11:39:49.827Z">
+<meta property="article:modified_time" content="2020-04-06T05:07:57.447Z">
 <meta property="article:author" content="Barrel Titor">
 <meta property="article:tag" content="Blog">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://barrel-titor.github.io/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/server.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Barrel Titor&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<link rel="canonical" href="https://barrel-titor.github.io/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/">
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Barrel Titor&#39;s Blog</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">三天打渔两天晒网</a>
-        </h2>
-      
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>用 Hexo 和 GitHub Page 建立简单的 Blog | Barrel Titor's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://barrel-titor.github.io"></form>
-      </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Barrel Titor's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">三天打渔两天晒网</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
     </div>
   </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-用Hexo和Github-Page建立简单的Blog" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/" class="article-date">
-  <time datetime="2020-03-31T07:34:39.000Z" itemprop="datePublished">2020-03-31</time>
-</a>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">2</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
   </div>
 
-  </div>
-  <div class="article-inner">
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
     
-    
-      <header class="article-header">
-        
   
-    <h1 class="article-title" itemprop="name">
-      用 Hexo 和 GitHub Page 建立简单的 Blog
-    </h1>
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://barrel-titor.github.io/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/HDjIl.jpg">
+      <meta itemprop="name" content="Barrel Titor">
+      <meta itemprop="description" content="Learner of Data Science and Machine Learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Barrel Titor's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          用 Hexo 和 GitHub Page 建立简单的 Blog
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-31 15:34:39" itemprop="dateCreated datePublished" datetime="2020-03-31T15:34:39+08:00">2020-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-06 13:07:57" itemprop="dateModified" datetime="2020-04-06T13:07:57+08:00">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/" class="post-meta-item leancloud_visitors" data-flag-title="用 Hexo 和 GitHub Page 建立简单的 Blog" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
         <p>每次折腾点新事物，都是疯狂踩坑的过程，但是也从中学到了不少。<br>用博客做点记录，方便以后同样踩坑的朋友解决问题，也方便自己日后回顾。</p>
+<br>
+
+<a id="more"></a>
+
+
+
 <h1 id="1-为什么选择-Hexo-和-GitHub-Page"><a href="#1-为什么选择-Hexo-和-GitHub-Page" class="headerlink" title="1 - 为什么选择 Hexo 和 GitHub Page"></a>1 - 为什么选择 Hexo 和 GitHub Page</h1><p>相信有心写博客的新手，一开始都会纠结选择哪个平台。就好像我打游戏建号的时候，纠结选用什么武器，最后总会发现，这 TM 根本不是重点。</p>
+<br>
+
+
+
+
 <h2 id="1-1-GitHub-Page"><a href="#1-1-GitHub-Page" class="headerlink" title="1.1 - GitHub Page"></a>1.1 - GitHub Page</h2><p>对于多个平台的优缺点分析，有大佬已经做过了，有兴趣的朋友请<a href="https://www.zhihu.com/question/24629410/answer/292894980" target="_blank" rel="noopener">自行移步</a>。</p>
 <p>我个人选用 GitHub Page 的理由：</p>
 <ol>
@@ -115,6 +270,10 @@
 <li>本身比较熟悉 Markdown 语法，撰写方便</li>
 <li>免费QAQ</li>
 </ol>
+<br>
+
+
+
 <h2 id="1-2-Jekyll-or-Hexo"><a href="#1-2-Jekyll-or-Hexo" class="headerlink" title="1.2 - Jekyll or Hexo?"></a>1.2 - Jekyll or Hexo?</h2><p>在 GitHub Page 上有两个主流的静态博客框架：Jekyll 和 Hexo。Jekyll 与 GitHub 契合度更高，可以在 GitHub 中直接生成页面；Hexo 中文资料更丰富，基础功能更多，但是部署和备份比 Jekyll 麻烦。</p>
 <table>
 <thead>
@@ -155,6 +314,10 @@
 
 <h1 id="3-开始建站"><a href="#3-开始建站" class="headerlink" title="3 - 开始建站"></a>3 - 开始建站</h1><p>GitHub Pages 存放的是静态文件，而我们的博客存放的不只是日志内容，还有列表、分类、标签等动态内容。每当我们撰写或修改日志，这些动态内容都应该更新。</p>
 <p>Hexo 允许我们在本地撰写 Markdown 文件，写完后调用 Hexo 提供的命令，批量完成相关 HTML 页面的生成，最后将有改动的页面提交到 GitHub。</p>
+<br>
+
+
+
 <h2 id="3-1-初始化"><a href="#3-1-初始化" class="headerlink" title="3.1 - 初始化"></a>3.1 - 初始化</h2><p>以上环境全部配置完成后，我们可以依次执行下面的命令来新建我们的博客：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
 
@@ -167,6 +330,10 @@
 <h3 id="scaffolds"><a href="#scaffolds" class="headerlink" title="scaffolds"></a><span id="scaffolds">scaffolds</span></h3><p>日志模版文件夹。例如，我们新建一篇 <code>post</code> 类型的日志，Hexo 会以 <code>scaffolds/post.md</code> 为模板创建新日志。</p>
 <h3 id="source"><a href="#source" class="headerlink" title="source"></a>source</h3><p>存放用户资源的文件夹。我们撰写的日志以及使用的图片、CSS、JS文件都将放在这里。</p>
 <h3 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h3><p>主题文件夹。（Hexo 暖暖</p>
+<br>
+
+
+
 <h2 id="3-2-启动本地-Hexo-服务器"><a href="#3-2-启动本地-Hexo-服务器" class="headerlink" title="3.2 - 启动本地 Hexo 服务器"></a>3.2 - 启动本地 Hexo 服务器</h2><p>我们可以在本地启动一个服务器，这样当我们在本地写日志时，可以快速预览效果。</p>
 <p>安装 hexo-server:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-server --save</span><br></pre></td></tr></table></figure>
@@ -182,11 +349,15 @@
 <p>如果端口被占用，可以用 <code>-p</code> 选项指定其他端口，如：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server -p 5000</span><br></pre></td></tr></table></figure>
 
+<br>
+
 
 
 <h2 id="3-3-配置-GitHub-Page"><a href="#3-3-配置-GitHub-Page" class="headerlink" title="3.3 - 配置 GitHub Page"></a>3.3 - 配置 GitHub Page</h2><p>在自己的 GitHub 主页新建一个 repository，将其命名为 <code>username</code>.github.io，注意把 <code>username</code> 改为你的<strong>用户名</strong>而非昵称哦！这样，<code>username</code>.github.io 就成为我们享有的域名了~</p>
 <p>没有问题的话，在这个 repo 的设置页面，可以看到成功创建 GitHub Page 的信息。</p>
 <img src="/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/github_page.png" class="" title="github_page"><br>
+
+<br>
 
 
 
@@ -201,6 +372,10 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Writing</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <p>开启这个功能后，Hexo 会在我们新建日志时，自动创建一个与日志同名的文件夹。我们可以把这篇日志需要的图片、脚本等，放入这个资源文件夹，这样我们就可以通过相对路径来快速、方便地访问~</p>
+<br>
+
+
+
 <h2 id="3-4-撰写日志"><a href="#3-4-撰写日志" class="headerlink" title="3.4 - 撰写日志"></a>3.4 - 撰写日志</h2><p>在终端输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
 
@@ -221,6 +396,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"your registered email address of GitHub"</span></span><br></pre></td></tr></table></figure>
 
 <p>我们会得到两个文件：<code>id_rsa</code> 和 <code>id_rsa.pub</code>。打开 <code>id_rsa.pub</code>，复制里面的所有内容，然后进入 GitHub 账号设置页里的 <a href="https://github.com/settings/keys" target="_blank" rel="noopener">SSH and GPG keys</a>，粘贴到 SSH keys 里面。</p>
+<br>
+
+
+
 <h2 id="4-1-将日志推送至-GitHub"><a href="#4-1-将日志推送至-GitHub" class="headerlink" title="4.1 - 将日志推送至 GitHub"></a>4.1 - 将日志推送至 GitHub</h2><h3 id="安装-hexo-deployer-git"><a href="#安装-hexo-deployer-git" class="headerlink" title="安装 hexo-deployer-git"></a>安装 <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a></h3><p>在终端执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
@@ -241,6 +420,10 @@
 
 <p><code>hexo clean</code> 用于清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。在某些情况（尤其是更换主题后），我们可能需要运行该命令。</p>
 <p><code>hexo deploy</code> 部署网站。</p>
+<br>
+
+
+
 <h2 id="4-2-备份-Hexo-设置文件"><a href="#4-2-备份-Hexo-设置文件" class="headerlink" title="4.2 - 备份 Hexo 设置文件"></a>4.2 - 备份 Hexo 设置文件</h2><h3 id="创建新分支"><a href="#创建新分支" class="headerlink" title="创建新分支"></a>创建新分支</h3><p>在 GitHub 的项目主页，创建一个名为 Hexo 的新分支。</p>
 <img src="/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/new_branch.png" class="" title="new_branch"><br>
 
@@ -270,6 +453,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>
 
 <p>把文章推到 master 分支上。</p>
+<br>
+
+
+
 <h2 id="5-2-从远程恢复资料"><a href="#5-2-从远程恢复资料" class="headerlink" title="5.2 - 从远程恢复资料"></a>5.2 - 从远程恢复资料</h2><p>如果重装电脑，或者需要在网吧完成工作，可以如下操作：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> &lt;your repo address&gt;</span><br></pre></td></tr></table></figure>
 
@@ -281,138 +468,252 @@
 
 
 
+<h1 id="6-一定不会鸽的预告"><a href="#6-一定不会鸽的预告" class="headerlink" title="6 - 一定不会鸽的预告"></a>6 - 一定不会鸽的预告</h1><ul>
+<li>为 Hexo 更换主题样式</li>
+<li>添加多语言支持</li>
+<li>添加第三方功能（Google Analytics，阅读量统计，评论等）</li>
+<li>Git 常用操作集锦</li>
+</ul>
+<br>
+
+
+
 <h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="https://www.zhihu.com/question/24629410/answer/292894980" target="_blank" rel="noopener">如何开始写技术博客，怎么选择？</a></p>
 <p><a href="https://liguanghe.github.io/2017/11/06/blogRebuilt/" target="_blank" rel="noopener">hexo 博客的神坑及本质原因</a></p>
 <p><a href="https://hexo.io/zh-cn/docs/setup" target="_blank" rel="noopener">Hexo 官方文档</a></p>
 <p><a href="[https://hyxxsfwy.github.io/2016/01/15/Hexo-Markdown-%E7%AE%80%E6%98%8E%E8%AF%AD%E6%B3%95%E6%89%8B%E5%86%8C/#%E8%B6%85%E9%93%BE%E6%8E%A5](https://hyxxsfwy.github.io/2016/01/15/Hexo-Markdown-简明语法手册/#超链接)">Hexo Markdown 简明语法手册</a></p>
 <p><a href="https://www.zhihu.com/question/21193762/answer/79109280" target="_blank" rel="noopener">使用hexo，如果换了电脑怎么更新博客？</a></p>
 
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="https://barrel-titor.github.io/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/" data-id="ck8fl5vk60000nolq03t1hmd8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Blog/" rel="tag"># Blog</a>
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/Git/" rel="tag"># Git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/06/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/" rel="next" title="为 Hexo 博客更换主题">
+      为 Hexo 博客更换主题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-为什么选择-Hexo-和-GitHub-Page"><span class="nav-text">1 - 为什么选择 Hexo 和 GitHub Page</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-GitHub-Page"><span class="nav-text">1.1 - GitHub Page</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Jekyll-or-Hexo"><span class="nav-text">1.2 - Jekyll or Hexo?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-环境准备"><span class="nav-text">2 - 环境准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-开始建站"><span class="nav-text">3 - 开始建站</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-初始化"><span class="nav-text">3.1 - 初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#config-yml"><span class="nav-text">_config.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#package-json"><span class="nav-text">package.json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scaffolds"><span class="nav-text">scaffolds</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#source"><span class="nav-text">source</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#themes"><span class="nav-text">themes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-启动本地-Hexo-服务器"><span class="nav-text">3.2 - 启动本地 Hexo 服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-配置-GitHub-Page"><span class="nav-text">3.3 - 配置 GitHub Page</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-修改-Hexo-配置信息"><span class="nav-text">3.4 - 修改 Hexo 配置信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网站描述"><span class="nav-text">网站描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名配置"><span class="nav-text">域名配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写作配置"><span class="nav-text">写作配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-撰写日志"><span class="nav-text">3.4 - 撰写日志</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-部署至-GitHub"><span class="nav-text">4 - 部署至 GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-将日志推送至-GitHub"><span class="nav-text">4.1 - 将日志推送至 GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-hexo-deployer-git"><span class="nav-text">安装 hexo-deployer-git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署配置"><span class="nav-text">部署配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成站点文件并推送"><span class="nav-text">生成站点文件并推送</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-备份-Hexo-设置文件"><span class="nav-text">4.2 - 备份 Hexo 设置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建新分支"><span class="nav-text">创建新分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把-repo-的默认分支改为-Hexo"><span class="nav-text">把 repo 的默认分支改为 Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联远程-repo"><span class="nav-text">关联远程 repo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-版本控制"><span class="nav-text">5 - 版本控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-日常修改"><span class="nav-text">5.1 - 日常修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-从远程恢复资料"><span class="nav-text">5.2 - 从远程恢复资料</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-一定不会鸽的预告"><span class="nav-text">6 - 一定不会鸽的预告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-text">参考文章</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Barrel Titor"
+      src="https://i.imgur.com/HDjIl.jpg">
+  <p class="site-author-name" itemprop="name">Barrel Titor</p>
+  <div class="site-description" itemprop="description">Learner of Data Science and Machine Learning</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Barrel-Titor" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Barrel-Titor" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:czf1019@gmail.com" title="E-Mail → mailto:czf1019@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Barrel Titor</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
     </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2020/03/30/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
 
   
-</article>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li></ul>
-    </div>
-  </div>
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
-    </div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a>
-    </div>
-  </div>
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/">用 Hexo 和 GitHub Page 建立简单的 Blog</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/30/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'uJ0yIByhgDNHv3HwzKBi6wPt-MdYXbMMI',
+      appKey     : 'd1ymotc9tKHBFnOEdlswOeJx',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 Barrel Titor<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
 </body>
 </html>
