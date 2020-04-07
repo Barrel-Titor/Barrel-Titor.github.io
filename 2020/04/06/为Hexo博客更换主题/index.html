@@ -14,10 +14,11 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"barrel-titor.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"barrel-titor.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="更换主题，美化">
@@ -28,7 +29,7 @@
 <meta property="og:description" content="更换主题，美化">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-06T04:56:38.000Z">
-<meta property="article:modified_time" content="2020-04-06T10:40:06.343Z">
+<meta property="article:modified_time" content="2020-04-07T14:16:07.976Z">
 <meta property="article:author" content="Barrel Titor">
 <meta property="article:tag" content="Blog">
 <meta property="article:tag" content="Git">
@@ -49,8 +50,26 @@
 
   <title>为 Hexo 博客更换主题 | Barrel Titor's Blog</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162969223-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-162969223-1');
+      }
+    </script>
 
 
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?16e7b5baedd7540fba2639f88ec50c42";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -120,11 +139,6 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">3</span></a>
@@ -137,7 +151,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">2</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">3</span></a>
 
   </li>
   </ul>
@@ -190,10 +204,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-06 12:56:38 / 修改时间：18:40:06" itemprop="dateCreated datePublished" datetime="2020-04-06T12:56:38+08:00">2020-04-06</time>
+              <time title="创建时间：2020-04-06 12:56:38" itemprop="dateCreated datePublished" datetime="2020-04-06T12:56:38+08:00">2020-04-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-07 22:16:07" itemprop="dateModified" datetime="2020-04-07T22:16:07+08:00">2020-04-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -225,7 +245,21 @@
     </a>
   </span>
   
-  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>584</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -238,30 +272,42 @@
       
         <p>更换主题，美化</p>
 <a id="more"></a>
-
-<h1 id="1-安装theme"><a href="#1-安装theme" class="headerlink" title="1 - 安装theme"></a>1 - 安装theme</h1><p>1  把next主题fork到自己的账号下，以便push自己对主题的魔改</p>
+<h1 id="安装theme">1 - 安装theme</h1>
+<p>1 把next主题fork到自己的账号下，以便push自己对主题的魔改</p>
 <blockquote>
 <p>后续尝试：能否把主题魔改push至本repo的第三个branch</p>
 <p>参考把.deploy_git添加为submodule的文章</p>
 </blockquote>
-<p>2  git submodule add &lt;刚fork好的repo地址&gt; &lt;theme目录&gt;</p>
-<p>3  修改站点配置和主题配置，使主题生效</p>
-<h1 id="2-修改基本配置"><a href="#2-修改基本配置" class="headerlink" title="2 - 修改基本配置"></a>2 - 修改基本配置</h1><p>参照官方文档</p>
-<h1 id="3-分类页和标签页"><a href="#3-分类页和标签页" class="headerlink" title="3 - 分类页和标签页"></a>3 - 分类页和标签页</h1><p>官方文档和GitHub issue有教程</p>
+<p>2 git submodule add <刚fork好的repo地址> <theme目录></p>
+<p>3 修改站点配置和主题配置，使主题生效</p>
+<h1 id="修改基本配置">2 - 修改基本配置</h1>
+<p>参照官方文档</p>
+<h1 id="分类页和标签页">3 - 分类页和标签页</h1>
+<p>官方文档和GitHub issue有教程</p>
 <p>标签云</p>
-<h1 id="4-评论系统，阅读统计，google-analysis"><a href="#4-评论系统，阅读统计，google-analysis" class="headerlink" title="4 - 评论系统，阅读统计，google analysis"></a>4 - 评论系统，阅读统计，google analysis</h1><p>Valine和Leancloud</p>
+<h1 id="评论系统阅读统计google-analysis">4 - 评论系统，阅读统计，google analysis</h1>
+<p>Valine和Leancloud</p>
 <p>Valine增强版</p>
-<h1 id="5-版本控制"><a href="#5-版本控制" class="headerlink" title="5 - 版本控制"></a>5 - 版本控制</h1><p>1  推送到远程：Hexo站点配置和Next主题配置需要分开push</p>
-<p>2  如果要从源作者处更新theme，先把作者项目与自己fork的repo合并（可能产生冲突），再用git submodule update –remote进行更新</p>
-<p>3  若换新电脑，用git clone –recursive &lt;repo地址&gt; </p>
-<h1 id="6-主题优化"><a href="#6-主题优化" class="headerlink" title="6 - 主题优化"></a>6 - 主题优化</h1><p>不急</p>
-<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p>挑选和初步配置 Hexo 主题                <a href="https://blog.junyu.io/posts/0003-choose-a-theme-you-like.html" target="_blank" rel="noopener">https://blog.junyu.io/posts/0003-choose-a-theme-you-like.html</a></p>
-<p>在 hexo 中使用 git submodules 管理主题  <a href="https://juejin.im/post/5c2e22fcf265da615d72c596" target="_blank" rel="noopener">https://juejin.im/post/5c2e22fcf265da615d72c596</a></p>
-<p>使用 submodule 管理 Hexo 主题           <a href="https://www.jianshu.com/p/5abacac4133c" target="_blank" rel="noopener">https://www.jianshu.com/p/5abacac4133c</a></p>
-<p>使用 Git Submodule 管理 Hexo 主题       <a href="https://www.dnocm.com/articles/beechnut/hexo-git-submodule/" target="_blank" rel="noopener">https://www.dnocm.com/articles/beechnut/hexo-git-submodule/</a></p>
-<p>关于 git-submodule 的一些基本操作       <a href="https://segmentfault.com/a/1190000009928515" target="_blank" rel="noopener">https://segmentfault.com/a/1190000009928515</a></p>
-<p>Hexo 下 next 主题 valine 强化版本的改造    <a href="https://face2ai.com/other-Hexo-next-valine-leancloud" target="_blank" rel="noopener">https://face2ai.com/other-Hexo-next-valine-leancloud</a></p>
-<p>Hexo-NexT 主题个性优化    <a href="https://guanqr.com/tech/website/hexo-theme-next-customization/" target="_blank" rel="noopener">https://guanqr.com/tech/website/hexo-theme-next-customization/</a></p>
+<h1 id="版本控制">5 - 版本控制</h1>
+<p>1 推送到远程：Hexo站点配置和Next主题配置需要分开push</p>
+<p>2 如果要从源作者处更新theme，先把作者项目与自己fork的repo合并（可能产生冲突），再用git submodule update --remote进行更新</p>
+<p>3 若换新电脑，用git clone --recursive <repo地址></p>
+<h1 id="一定不会鸽的预告">6 - 一定不会鸽的预告</h1>
+<ul>
+<li>NexT 主题个性配置</li>
+<li>添加多语言支持</li>
+<li>Git 常用操作集锦</li>
+</ul>
+<hr />
+<h1 id="参考文章">参考文章</h1>
+<p><a href="https://blog.junyu.io/posts/0003-choose-a-theme-you-like.html" target="_blank" rel="noopener">挑选和初步配置 Hexo 主题</a></p>
+<p><a href="https://juejin.im/post/5c2e22fcf265da615d72c596" target="_blank" rel="noopener">在 hexo 中使用 git submodules 管理主题</a></p>
+<p><a href="https://www.jianshu.com/p/5abacac4133c" target="_blank" rel="noopener">使用 submodule 管理 Hexo 主题</a></p>
+<p><a href="https://www.dnocm.com/articles/beechnut/hexo-git-submodule/" target="_blank" rel="noopener">使用 Git Submodule 管理 Hexo 主题</a></p>
+<p><a href="https://segmentfault.com/a/1190000009928515" target="_blank" rel="noopener">关于 git-submodule 的一些基本操作</a></p>
+<p><a href="https://face2ai.com/other-Hexo-next-valine-leancloud" target="_blank" rel="noopener">Hexo 下 next 主题 valine 强化版本的改造</a></p>
+<p><a href="https://guanqr.com/tech/website/hexo-theme-next-customization/" target="_blank" rel="noopener">Hexo-NexT 主题个性优化</a></p>
+<p><a href="https://tding.top/archives/dfac1e9c.html" target="_blank" rel="noopener">Hexo-NexT 主题样式美化 - 动画设置</a></p>
 
     </div>
 
@@ -284,7 +330,10 @@
     <a href="/2020/03/31/%E7%94%A8Hexo%E5%92%8CGithub-Page%E5%BB%BA%E7%AB%8B%E7%AE%80%E5%8D%95%E7%9A%84Blog/" rel="prev" title="用 Hexo 和 GitHub Page 建立简单的 Blog">
       <i class="fa fa-chevron-left"></i> 用 Hexo 和 GitHub Page 建立简单的 Blog
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/07/test/" rel="next" title="Test">
+      Test <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -344,7 +393,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-安装theme"><span class="nav-text">1 - 安装theme</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-修改基本配置"><span class="nav-text">2 - 修改基本配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-分类页和标签页"><span class="nav-text">3 - 分类页和标签页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-评论系统，阅读统计，google-analysis"><span class="nav-text">4 - 评论系统，阅读统计，google analysis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-版本控制"><span class="nav-text">5 - 版本控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-主题优化"><span class="nav-text">6 - 主题优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-text">参考文章</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装theme"><span class="nav-text">1 - 安装theme</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改基本配置"><span class="nav-text">2 - 修改基本配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分类页和标签页"><span class="nav-text">3 - 分类页和标签页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#评论系统阅读统计google-analysis"><span class="nav-text">4 - 评论系统，阅读统计，google analysis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#版本控制"><span class="nav-text">5 - 版本控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一定不会鸽的预告"><span class="nav-text">6 - 一定不会鸽的预告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-text">参考文章</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -360,17 +409,21 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">分类</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">标签</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -409,9 +462,20 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Barrel Titor</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">5k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99"
+    src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
         
 
@@ -428,6 +492,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -459,6 +525,8 @@
 
 
 
+
+  
 
   
 
