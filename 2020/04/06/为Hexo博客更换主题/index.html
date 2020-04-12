@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://barrel-titor.github.io/2020/04/06/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/leancloud4.png">
 <meta property="og:image" content="https://barrel-titor.github.io/2020/04/06/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/%E6%89%93%E8%84%B8.jpg">
 <meta property="article:published_time" content="2020-04-06T04:56:38.000Z">
-<meta property="article:modified_time" content="2020-04-08T17:09:01.534Z">
+<meta property="article:modified_time" content="2020-04-10T04:17:19.194Z">
 <meta property="article:author" content="Barrel Titor">
 <meta property="article:tag" content="Blog">
 <meta property="article:tag" content="Git">
@@ -218,7 +218,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-09 01:09:01" itemprop="dateModified" datetime="2020-04-09T01:09:01+08:00">2020-04-09</time>
+                <time title="修改时间：2020-04-10 12:17:19" itemprop="dateModified" datetime="2020-04-10T12:17:19+08:00">2020-04-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -278,189 +278,155 @@
       
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Hexo 默认的主题 landscape，个人觉得比较憨憨，也不好看，因此换用更常见也更美观的 NexT 的主题。</p>
 <a id="more"></a>
-
-
-
 <p><strong>注1：本篇文章的所有配置都是在 Windows 10，Hexo-cli 3.1.0 和 NexT v7.8.0 下完成的。</strong></p>
 <p><b>注2：本篇文章中会出现两份 _config.yml。一份位于站点根目录，主要包含 Hexo 的配置；另一份位于 NexT 主题目录下，主要用于配置主题相关的选项。为了描述方便，在文章中，将前者标识为<font color=red>站点配置文件</font>， 后者标识为<font color=blue>主题配置文件</font>。</b></p>
-<br>
-
-
-
-<h1 id="1-安装-NexT-主题"><a href="#1-安装-NexT-主题" class="headerlink" title="1 - 安装 NexT 主题"></a>1 - 安装 NexT 主题</h1><p>朋友们可以根据自己的喜好安装其他主题，通用步骤如下</p>
-<br>
-
-
-
-<h2 id="1-1-下载主题"><a href="#1-1-下载主题" class="headerlink" title="1.1 - 下载主题"></a>1.1 - 下载主题</h2><p>首先我们切换到博客根目录（后文用 <code>blog</code> 指代）</p>
+<p><br></p>
+<h1 id="安装-next-主题">1 - 安装 NexT 主题</h1>
+<p>朋友们可以根据自己的喜好安装其他主题，通用步骤如下</p>
+<p><br></p>
+<h2 id="下载主题">1.1 - 下载主题</h2>
+<p>首先我们切换到博客根目录（后文用 <code>blog</code> 指代）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure>
-
 <p>注意！<del>我要变形了</del> <strong>此处有大坑</strong></p>
-<h3 id="错误示范-1"><a href="#错误示范-1" class="headerlink" title="错误示范 1"></a>错误示范 1</h3><p>在 NexT 主题的官方文档<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="https://github.com/theme-next/hexo-theme-next
+<h3 id="错误示范-1">错误示范 1</h3>
+<p>在 NexT 主题的官方文档<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" data-aria-label="https://github.com/theme-next/hexo-theme-next
 ">[1]</span></a></sup>，我们可以看到推荐的安装方式是</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-
 <p>这段代码的含义是把 hexo-theme-next 这个远程仓库，拷贝到 <code>themes/next</code> 目录下。但是这样安装会产生如下的问题：</p>
 <ul>
 <li>用 <code>git clone</code> 是把一个独立的仓库克隆到我们的的 Hexo 源码中，我们的 Hexo 源码也是一个仓库，所以就产生了父子关系，即 NexT 主题仓库成为了我们主仓库下的一个独立子仓库。父仓库不会对子仓库进行管理，这样就违背了我们用 Git 进行版本控制的初衷；</li>
 <li>我们可以删除 NexT 项目下的 <code>.git</code> 文件，把 <code>themes/next</code> 变成一个普通的目录，这样就取消了父子仓库关系。但是如果后续主题作者有更新，就不能直接用 <code>git pull</code> 拉取更新，而是需要手动安装，覆盖原来的文件，重新配置主题，不易维护。</li>
 </ul>
 <p>好在 Git 提供了子模块 submodule 功能，可以优雅地避免上面的问题。它允许我们将一个 Git 仓库作为另一个 Git 仓库的子目录，同时还保持提交的独立。</p>
-<h3 id="错误示范-2"><a href="#错误示范-2" class="headerlink" title="错误示范 2"></a>错误示范 2</h3><p>但是，直接在终端输入如下的代码，仍然是不妥当的</p>
+<h3 id="错误示范-2">错误示范 2</h3>
+<p>但是，直接在终端输入如下的代码，仍然是不妥当的</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule add https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-
 <p>为什么呢？其实这样子，在我们本地修改和使用主题的时候是没有问题的 ~</p>
 <p>但是当我们要把修改提交到 GitHub 时，会导致我们把自己的文件，提交到<strong>主题原作者</strong>的仓库去，这显然是不合适的！</p>
-<h3 id="正确示范（敲黑板！"><a href="#正确示范（敲黑板！" class="headerlink" title="正确示范（敲黑板！"></a>正确示范（敲黑板！</h3><p>因此，下载主题的正确操作流程应该是介样的：</p>
-<ol>
+<h3 id="正确示范敲黑板">正确示范（敲黑板！</h3>
+<p>因此，下载主题的正确操作流程应该是介样的：</p>
+<ol type="1">
 <li>在 GitHub 上，把原作者的主题 fork 到我们自己的仓库中</li>
 <li>运行以下命令，把 NexT 主题添加为我们博客的子模块</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule add https://github.com/&lt;username&gt;/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-
 <p><code>username</code> 为我们自己的用户名。</p>
 <p>如此这般，在我们把自己的修改 push 到远程仓库后，可以在 GitHub 上看到，<code>themes/next</code> 的图标跟平常的文件夹不太一样</p>
-<p><img src="submodule1.png" alt=""></p>
+<p><img src="submodule1.png" /></p>
 <p>鼠标单击一下，我们就跳转到了前面自己 fork 下来的主题仓库。因此，这里图上的 next @ xxxxxx，就是一个跳转到其他远程仓库的快捷方式。</p>
-<p><img src="submodule2.png" alt=""></p>
-<br>
-
-
-
-<h2 id="1-2-修改-Hexo-配置"><a href="#1-2-修改-Hexo-配置" class="headerlink" title="1.2 - 修改 Hexo 配置"></a>1.2 - 修改 Hexo 配置</h2><p>为了启用 NexT 主题，我们要在<font color=red>站点配置文件</font>中找到 <code>theme</code> 字段并将其值更改为 <code>next</code>。</p>
+<p><img src="submodule2.png" /></p>
+<p><br></p>
+<h2 id="修改-hexo-配置">1.2 - 修改 Hexo 配置</h2>
+<p>为了启用 NexT 主题，我们要在<font color=red>站点配置文件</font>中找到 <code>theme</code> 字段并将其值更改为 <code>next</code>。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-
-
-<h2 id="1-3-测试"><a href="#1-3-测试" class="headerlink" title="1.3 - 测试"></a>1.3 - 测试</h2><p>在终端以调试模式启动本地服务器</p>
+<p><br></p>
+<h2 id="测试">1.3 - 测试</h2>
+<p>在终端以调试模式启动本地服务器</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo s --debug</span><br></pre></td></tr></table></figure>
-
 <p>然后用浏览器访问 <code>http://localhost:4000</code>，检查站点是否正确运行。</p>
-<br>
-
-
-
-<h1 id="2-修改主题配置"><a href="#2-修改主题配置" class="headerlink" title="2 - 修改主题配置"></a>2 - 修改主题配置</h1><p>官方文档<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="http://theme-next.iissnan.com/getting-started.html#theme-settings">[2]</span></a></sup>描述得很详细了，按顺序一步步配置即可，在此不多赘述。</p>
-<br>
-
-
-
-<h1 id="3-分类页和标签页"><a href="#3-分类页和标签页" class="headerlink" title="3 - 分类页和标签页"></a>3 - 分类页和标签页</h1><p>与默认的 landscape 主题不同，NexT 主题的分类页和标签页需要自己创建，然后关联到首页上。</p>
+<p><br></p>
+<h1 id="修改主题配置">2 - 修改主题配置</h1>
+<p>官方文档<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" data-aria-label="http://theme-next.iissnan.com/getting-started.html#theme-settings">[2]</span></a></sup>描述得很详细了，按顺序一步步配置即可，在此不多赘述。</p>
+<p><br></p>
+<h1 id="分类页和标签页">3 - 分类页和标签页</h1>
+<p>与默认的 landscape 主题不同，NexT 主题的分类页和标签页需要自己创建，然后关联到首页上。</p>
 <p>分别执行以下步骤：</p>
-<br>
-
-
-
-<h2 id="3-1-新建页面"><a href="#3-1-新建页面" class="headerlink" title="3.1 - 新建页面"></a>3.1 - 新建页面</h2><p>在终端输入</p>
+<p><br></p>
+<h2 id="新建页面">3.1 - 新建页面</h2>
+<p>在终端输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page &lt;<span class="built_in">type</span>&gt;</span><br></pre></td></tr></table></figure>
-
 <p>这里的 <code>type</code>，对于分类页请替换为 categories，对于标签页请替换为 tags。</p>
-<br>
-
-
-
-<h2 id="3-2-设置页面类型"><a href="#3-2-设置页面类型" class="headerlink" title="3.2 - 设置页面类型"></a>3.2 - 设置页面类型</h2><p>编辑刚新建的页面，将页面类型设置为 <code>type</code>。同样，分类页替换为 categories，标签页替换为 tags。</p>
+<p><br></p>
+<h2 id="设置页面类型">3.2 - 设置页面类型</h2>
+<p>编辑刚新建的页面，将页面类型设置为 <code>type</code>。同样，分类页替换为 categories，标签页替换为 tags。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">标签</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020</span><span class="number">-04</span><span class="number">-07</span> <span class="number">14</span><span class="string">:16:04</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">"&lt;type&gt;"</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-
-
-<h2 id="3-3-在菜单中添加链接"><a href="#3-3-在菜单中添加链接" class="headerlink" title="3.3 - 在菜单中添加链接"></a>3.3 - 在菜单中添加链接</h2><p>修改<font color=blue>主题配置文件</font>，取消 <code>tags</code> 和 <code>categories</code> 项的注释。</p>
+<p><br></p>
+<h2 id="在菜单中添加链接">3.3 - 在菜单中添加链接</h2>
+<p>修改<font color=blue>主题配置文件</font>，取消 <code>tags</code> 和 <code>categories</code> 项的注释。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-
-
-<h1 id="4-评论系统和阅读统计"><a href="#4-评论系统和阅读统计" class="headerlink" title="4 - 评论系统和阅读统计"></a>4 - 评论系统和阅读统计</h1><p>评论系统有很多家可以选择，最常见的应该是 Disqus 了。</p>
+<p><br></p>
+<h1 id="评论系统和阅读统计">4 - 评论系统和阅读统计</h1>
+<p>评论系统有很多家可以选择，最常见的应该是 Disqus 了。</p>
 <p>不过我选择的是 Valine，这是一个基于 LeanCloud 的无后端评论系统，并且集成了阅读统计功能。</p>
 <p><del>别问，问就是懒</del></p>
 <p>值得一提的是，NexT 支持多评论系统，我们可以尝试同时开启 Disqus 和 Valine 系统，但本篇文章不讨论这个内容。</p>
-<br>
-
-
-
-<h2 id="4-1-注册-LeanCloud"><a href="#4-1-注册-LeanCloud" class="headerlink" title="4.1 - 注册 LeanCloud"></a>4.1 - 注册 LeanCloud</h2><p>登录或者注册 LeanCloud，推荐使用国际版，不需要进行域名备案。</p>
+<p><br></p>
+<h2 id="注册-leancloud">4.1 - 注册 LeanCloud</h2>
+<p>登录或者注册 LeanCloud，推荐使用国际版，不需要进行域名备案。</p>
 <p>完成必要的身份验证后，创建一个开发版应用。</p>
-<p><img src="leancloud1.png" alt=""></p>
+<p><img src="leancloud1.png" /></p>
 <p>进入刚刚创建的应用，点击 <code>设置</code> &gt; <code>安全中心</code>，在 <code>Web 安全域名</code> 中输入我们博客的网址。</p>
-<p><img src="leancloud2.png" alt=""></p>
+<p><img src="leancloud2.png" /></p>
 <p>点击 <code>设置</code> &gt; <code>应用Keys</code>，就能看到你的 <code>AppID</code> 和 <code>AppKey</code> 了：</p>
-<p><img src="leancloud3.png" alt=""></p>
+<p><img src="leancloud3.png" /></p>
 <p>点击 <code>设置</code> &gt; <code>邮件模板</code>，按下图设置好<strong>用于重置密码的邮件主题</strong></p>
-<p><img src="leancloud4.png" alt=""></p>
+<p><img src="leancloud4.png" /></p>
 <p>内容部分如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hi, &#123;&#123;username&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">你在 &#123;&#123;appname&#125;&#125; 的评论收到了新的回复，请点击查看：</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"你的网址首页链接"</span> <span class="attr">style</span>=<span class="string">"display: inline-block; padding: 10px 20px; border-radius: 4px; background-color: #3090e4; color: #fff; text-decoration: none;"</span>&gt;</span>马上查看<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>注意修改链接为自己的博客首页。</p>
-<br>
-
-
-
-
-<h2 id="4-2-NexT-配置"><a href="#4-2-NexT-配置" class="headerlink" title="4.2 - NexT 配置"></a>4.2 - NexT 配置</h2><p>当前版本的 NexT 已经集成了 Valine，我们只需要在<font color=blue>主题配置文件</font>简单设置即可。</p>
+<p><br></p>
+<h2 id="next-配置">4.2 - NexT 配置</h2>
+<p>当前版本的 NexT 已经集成了 Valine，我们只需要在<font color=blue>主题配置文件</font>简单设置即可。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Valine</span></span><br><span class="line"><span class="comment"># For more information: https://valine.js.org, https://github.com/xCss/Valine</span></span><br><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">true</span> <span class="comment"># Mail notifier</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># Gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment"># Custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># Pagination size</span></span><br><span class="line">  <span class="attr">language:</span> <span class="comment"># Language, available values: en, zh-cn</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">true</span> <span class="comment"># Article reading statistic</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># If false, comment count will only be displayed in post page, not in home page</span></span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">false</span> <span class="comment"># Whether to record the commenter IP</span></span><br><span class="line">  <span class="attr">serverURLs:</span> <span class="comment"># When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span></span><br><span class="line">  <span class="comment">#post_meta_order: 0</span></span><br></pre></td></tr></table></figure>
-
-<p>把在 LeanCloud 申请的  <code>AppID</code> 和 <code>AppKey</code> 填入，并把 <code>notify</code>，<code>visitor</code> 和 <code>comment_account</code> 字段设置为 <code>true</code>。</p>
-<br>
-
-
-
-<h1 id="5-数据统计与分析"><a href="#5-数据统计与分析" class="headerlink" title="5 - 数据统计与分析"></a>5 - 数据统计与分析</h1><p>常见的工具有百度统计、CNZZ 统计、Google Analytics等。</p>
-<p>我太困了，不想写了，请参考官方文档<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="http://theme-next.iissnan.com/third-party-services.html#analytics-system">[3]</span></a></sup>。</p>
-<br>
-
-
-
-<h1 id="6-版本控制"><a href="#6-版本控制" class="headerlink" title="6 - 版本控制"></a>6 - 版本控制</h1><h2 id="6-1-推送至-GitHub"><a href="#6-1-推送至-GitHub" class="headerlink" title="6.1 - 推送至 GitHub"></a>6.1 - 推送至 GitHub</h2><p>当我们对主题（子模块）的内容进行修改时，Hexo 站点（主模块）只知道我们进行了修改，但是并不会管理我们具体进行了什么修改。</p>
+<p>把在 LeanCloud 申请的 <code>AppID</code> 和 <code>AppKey</code> 填入，并把 <code>notify</code>，<code>visitor</code> 和 <code>comment_account</code> 字段设置为 <code>true</code>。</p>
+<p><br></p>
+<h1 id="数据统计与分析">5 - 数据统计与分析</h1>
+<p>常见的工具有百度统计、CNZZ 统计、Google Analytics等。</p>
+<p>我太困了，不想写了，请参考官方文档<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" data-aria-label="http://theme-next.iissnan.com/third-party-services.html#analytics-system">[3]</span></a></sup>。</p>
+<p><br></p>
+<h1 id="版本控制">6 - 版本控制</h1>
+<h2 id="推送至-github">6.1 - 推送至 GitHub</h2>
+<p>当我们对主题（子模块）的内容进行修改时，Hexo 站点（主模块）只知道我们进行了修改，但是并不会管理我们具体进行了什么修改。</p>
 <p>因此，子模块和主模块需要分开 push，一般先推送子模块，后推送主模块。</p>
-<br>
-
-
-
-<h2 id="6-2-从原作者处更新主题"><a href="#6-2-从原作者处更新主题" class="headerlink" title="6.2 - 从原作者处更新主题"></a>6.2 - 从原作者处更新主题</h2><p>如果使用的主题仍在被维护，那么我们就能从远程获取更新。操作很简单：</p>
+<p><br></p>
+<h2 id="从原作者处更新主题">6.2 - 从原作者处更新主题</h2>
+<p>如果使用的主题仍在被维护，那么我们就能从远程获取更新。操作很简单：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update --remote</span><br></pre></td></tr></table></figure>
-
-<br>
-
-
-
-<h2 id="6-3-在另一台电脑上工作"><a href="#6-3-在另一台电脑上工作" class="headerlink" title="6.3 - 在另一台电脑上工作"></a>6.3 - 在另一台电脑上工作</h2><p>与普通的 <code>git clone</code> 相比，只需要多做一步——加上 <code>--recursive</code> 参数。</p>
+<p><br></p>
+<h2 id="在另一台电脑上工作">6.3 - 在另一台电脑上工作</h2>
+<p>与普通的 <code>git clone</code> 相比，只需要多做一步——加上 <code>--recursive</code> 参数。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> --recursive &lt;your repo address&gt;</span><br></pre></td></tr></table></figure>
-
 <p>当然，有的时候秀逗了会忘记，没关系，以下命令和上面这条的功能是一样的。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> &lt;your repo address&gt;</span><br><span class="line">$ git submodule update --init</span><br></pre></td></tr></table></figure>
-
-<br>
-
-
-
-<h2 id="6-4-删除-submodule"><a href="#6-4-删除-submodule" class="headerlink" title="6.4 - 删除 submodule"></a>6.4 - 删除 submodule</h2><p><del>我，3个月换一次老婆</del></p>
-<p><img src="%E6%89%93%E8%84%B8.jpg" alt=""></p>
+<p><br></p>
+<h2 id="删除-submodule">6.4 - 删除 submodule</h2>
+<p><del>我，3个月换一次老婆</del></p>
+<p><img src="%E6%89%93%E8%84%B8.jpg" /></p>
 <p>有时候难免尝试一下新的 <del>老婆</del> 模块，但是实测不满意，想要 <del>退货</del> 卸载。</p>
 <p>这个操作曾经很麻烦，但是现在只需要一条命令就能完成：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule deinit &lt;submodule-name&gt;</span><br></pre></td></tr></table></figure>
-
-<br>
-
-
-
-<h1 id="7-一定不会鸽的预告"><a href="#7-一定不会鸽的预告" class="headerlink" title="7 - 一定不会鸽的预告"></a>7 - 一定不会鸽的预告</h1><ul>
+<p><br></p>
+<h1 id="一定不会鸽的预告">7 - 一定不会鸽的预告</h1>
+<ul>
 <li>NexT 主题个性配置</li>
 <li>添加多语言支持</li>
 <li>Git 常用操作集锦</li>
 </ul>
-<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="https://blog.junyu.io/posts/0003-choose-a-theme-you-like.html" target="_blank" rel="noopener">挑选和初步配置 Hexo 主题</a></p>
+<h1 id="参考文章">参考文章</h1>
+<p><a href="https://blog.junyu.io/posts/0003-choose-a-theme-you-like.html" target="_blank" rel="noopener">挑选和初步配置 Hexo 主题</a></p>
 <p><a href="https://juejin.im/post/5c2e22fcf265da615d72c596" target="_blank" rel="noopener">在 hexo 中使用 git submodules 管理主题</a></p>
 <p><a href="https://www.jianshu.com/p/5abacac4133c" target="_blank" rel="noopener">使用 submodule 管理 Hexo 主题</a></p>
 <p><a href="https://www.dnocm.com/articles/beechnut/hexo-git-submodule/" target="_blank" rel="noopener">使用 Git Submodule 管理 Hexo 主题</a></p>
 <p><a href="https://segmentfault.com/a/1190000009928515" target="_blank" rel="noopener">关于 git-submodule 的一些基本操作</a></p>
 <p><a href="https://guanqr.com/tech/website/hexo-theme-next-customization/" target="_blank" rel="noopener">Hexo-NexT 主题个性优化</a></p>
 <p><a href="https://tding.top/archives/dfac1e9c.html" target="_blank" rel="noopener">Hexo-NexT 主题样式美化 - 动画设置</a></p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">https://github.com/theme-next/hexo-theme-next<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">http://theme-next.iissnan.com/getting-started.html#theme-settings<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">http://theme-next.iissnan.com/third-party-services.html#analytics-system<a href="#fnref:3" rev="footnote"> ↩</a></span></li></ol></div></div>
+<div id="footnotes">
+<hr>
+<div id="footnotelist">
+<ol style="list-style: none; padding-left: 0; margin-left: 40px">
+<li id="fn:1">
+<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">https://github.com/theme-next/hexo-theme-next<a href="#fnref:1" rev="footnote"> ↩</a></span>
+</li>
+<li id="fn:2">
+<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">http://theme-next.iissnan.com/getting-started.html#theme-settings<a href="#fnref:2" rev="footnote"> ↩</a></span>
+</li>
+<li id="fn:3">
+<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">http://theme-next.iissnan.com/third-party-services.html#analytics-system<a href="#fnref:3" rev="footnote"> ↩</a></span>
+</li>
+</ol>
+</div>
+</div>
+
     </div>
 
     
@@ -543,7 +509,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-安装-NexT-主题"><span class="nav-text">1 - 安装 NexT 主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-下载主题"><span class="nav-text">1.1 - 下载主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误示范-1"><span class="nav-text">错误示范 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误示范-2"><span class="nav-text">错误示范 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正确示范（敲黑板！"><span class="nav-text">正确示范（敲黑板！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-修改-Hexo-配置"><span class="nav-text">1.2 - 修改 Hexo 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-测试"><span class="nav-text">1.3 - 测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-修改主题配置"><span class="nav-text">2 - 修改主题配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-分类页和标签页"><span class="nav-text">3 - 分类页和标签页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-新建页面"><span class="nav-text">3.1 - 新建页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-设置页面类型"><span class="nav-text">3.2 - 设置页面类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-在菜单中添加链接"><span class="nav-text">3.3 - 在菜单中添加链接</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-评论系统和阅读统计"><span class="nav-text">4 - 评论系统和阅读统计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-注册-LeanCloud"><span class="nav-text">4.1 - 注册 LeanCloud</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-NexT-配置"><span class="nav-text">4.2 - NexT 配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-数据统计与分析"><span class="nav-text">5 - 数据统计与分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-版本控制"><span class="nav-text">6 - 版本控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-推送至-GitHub"><span class="nav-text">6.1 - 推送至 GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-从原作者处更新主题"><span class="nav-text">6.2 - 从原作者处更新主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-在另一台电脑上工作"><span class="nav-text">6.3 - 在另一台电脑上工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-4-删除-submodule"><span class="nav-text">6.4 - 删除 submodule</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-一定不会鸽的预告"><span class="nav-text">7 - 一定不会鸽的预告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-text">参考文章</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-next-主题"><span class="nav-text">1 - 安装 NexT 主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载主题"><span class="nav-text">1.1 - 下载主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误示范-1"><span class="nav-text">错误示范 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误示范-2"><span class="nav-text">错误示范 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正确示范敲黑板"><span class="nav-text">正确示范（敲黑板！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-hexo-配置"><span class="nav-text">1.2 - 修改 Hexo 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-text">1.3 - 测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改主题配置"><span class="nav-text">2 - 修改主题配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分类页和标签页"><span class="nav-text">3 - 分类页和标签页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建页面"><span class="nav-text">3.1 - 新建页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置页面类型"><span class="nav-text">3.2 - 设置页面类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在菜单中添加链接"><span class="nav-text">3.3 - 在菜单中添加链接</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#评论系统和阅读统计"><span class="nav-text">4 - 评论系统和阅读统计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册-leancloud"><span class="nav-text">4.1 - 注册 LeanCloud</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-配置"><span class="nav-text">4.2 - NexT 配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据统计与分析"><span class="nav-text">5 - 数据统计与分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#版本控制"><span class="nav-text">6 - 版本控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#推送至-github"><span class="nav-text">6.1 - 推送至 GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从原作者处更新主题"><span class="nav-text">6.2 - 从原作者处更新主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在另一台电脑上工作"><span class="nav-text">6.3 - 在另一台电脑上工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除-submodule"><span class="nav-text">6.4 - 删除 submodule</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一定不会鸽的预告"><span class="nav-text">7 - 一定不会鸽的预告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-text">参考文章</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
